@@ -49,6 +49,6 @@ ________________________________________________________________________________
        - CSS - style.css [Tom]
        - Config file- map box api key
        - Bootstrap (from Web Design Challenge)[Kat]
-       - READme file
+       - READme file [Kat]
        - Finding new JS library and coding  [Kat]
    - Presentation planning 
