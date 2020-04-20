@@ -1,4 +1,4 @@
-// from data.js
+from data.js
 var tableData = data;
 var tbody = d3.select('tbody');
 var input = d3.select('input');

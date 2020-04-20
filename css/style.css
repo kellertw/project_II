@@ -73,6 +73,10 @@ select {
   outline: none;
 }
 
+#table-area {
+  overflow: auto;
+}
+
 #table-area th {
   text-align: center;
 }
@@ -94,18 +98,14 @@ select {
 /* The styles for the parallax */
 .hero {
   position: relative;
-  height: 550px;
+  height: 230px;
   padding: 20px;
   margin: 0;
-  background: black;
-  background-image: url("../images/nasa.jpg");
-  background-attachment: fixed;
-  background-position: bottom center;
-  background-size: cover;
+  /* background: black; */
 }
 
 .hero h1 {
-  margin-top: 200px;
+  margin-top: 10px;
   font-size: 0.1rem;
   animation: title 1.2s forwards linear;
 }
@@ -198,7 +198,7 @@ select {
   }
 
   to {
-    font-size: 7.5rem;
+    font-size: 3rem;
     opacity: 1;
   }
 }
