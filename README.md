@@ -47,7 +47,7 @@ ________________________________________________________________________________
        - HTML file [Ben]
        - JS- app.js (from Javascript Challenge)[Kat]
        - CSS - style.css [Tom]
-       - Config file- map box api key
+       - Config file- map box api key [Ben]
        - Bootstrap (from Web Design Challenge)[Kat]
        - READme file [Kat]
        - Finding new JS library and coding  [Kat]
