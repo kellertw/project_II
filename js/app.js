@@ -25,7 +25,7 @@ function handleClick() {
     var filteredData = tableData;
 
     if (date) {
-        filteredData = filteredData.filter(row => row.datetime === date)
+        filteredData = filteredData.filter(row => row.state === date)
     };
     renderData(filteredData);
     input.property('value','');

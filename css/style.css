@@ -84,7 +84,7 @@ select {
 #table-area th:first-child,
 #table-area th:nth-child(2),
 #table-area th:nth-child(6) {
-  min-width: 70px;
+  min-width: 80px;
 }
 
 .loader {
@@ -170,7 +170,7 @@ select {
   }
 
   #table-area td {
-    font-size: 1.25em;
+    font-size: 1em;
   }
 
   #table-area tbody td {
