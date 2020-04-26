@@ -15,7 +15,7 @@ def decoder(obj):
         return obj.isoformat()
     elif isinstance(obj, decimal.Decimal):
         return float(obj)
-
+      
 #################################################
 # Database Setup
 #################################################
@@ -32,6 +32,7 @@ Keys = Base.classes.keys
 CasinoSW = Base.classes.casinoSW
 
 session = Session(engine)
+
 #################################################
 # Flask Setup
 #################################################

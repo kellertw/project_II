@@ -8,4 +8,5 @@ CREATE TABLE "SAR_Statistics" (
     "Industry" VARCHAR(500)   NOT NULL,
     "Suspicious_Activity" VARCHAR(500)   NOT NULL,
     "Count" int NOT NULL
+    
 );
