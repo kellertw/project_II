@@ -75,6 +75,5 @@ def passengers():
 
     return jsonify(all_passengers)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
