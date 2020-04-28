@@ -8,6 +8,17 @@ from Susp_activity import casino_crime
 import json
 from flask import Flask, jsonify
 
+# For Heroku Deployment
+from flask import (
+    render_template,
+    request,
+    redirect
+    ) 
+from flask_sqlalchemy import SQLAlchemy
+
+# Remove tracking modifications
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 import decimal
 import datetime
 def decoder(obj):
