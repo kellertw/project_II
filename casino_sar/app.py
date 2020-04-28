@@ -17,7 +17,7 @@ from flask import (
 from flask_sqlalchemy import SQLAlchemy
 
 # Remove tracking modifications
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 import decimal
 import datetime
