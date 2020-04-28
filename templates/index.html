@@ -55,14 +55,14 @@
         </div>
       </div>
     </nav>
-    
+
     <div class="hero text-center">
       <h1>Financial Crime in Casinos in the Southwest Region of the U.S.</h1>
       <p>A Heatmap of Reportings by County</p>
     </div>
-    
+
     <div class="container-fluid">
-      
+
       <div class="row mx-1 px-1">
 
         <div id="map" class="col-lg-7 bg-secondary">
@@ -79,7 +79,13 @@
                   <th class="table-head">Count</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                  {% for item in data %}
+                    <tr>
+                      <td>{{item['Year']}}</td>
+                    </tr>
+                  {% endfor %}
+              </tbody>
             </table>
           <!-- </div> -->
         </div>

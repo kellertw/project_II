@@ -3,35 +3,22 @@ import numpy as np
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, create_engine
 from Susp_activity import casino_crime
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template, request
+import requests
 
 import decimal
 import datetime
-def decoder(obj):
-    if isinstance(obj, datetime.date):
-        return obj.isoformat()
-    elif isinstance(obj, decimal.Decimal):
-        return float(obj)
-      
+
+
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///casino.sqlite")
+
 
 # reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Save reference to the table
-Keys = Base.classes.keys
-
-CasinoSW = Base.classes.casinoSW
-
-session = Session(engine)
 
 #################################################
 # Flask Setup
@@ -43,31 +30,51 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
+# @app.route('/')
+# def index():
+#     # data = requests.get('http://127.0.0.1:5000/casino').json()['data']
+#     # return render_template('index.html', data=data)
+#     return render_template('index.html')
+
+
 @app.route("/")
 def casino():
-    # Create our session (link) from Python to the DB
+    engine = create_engine("sqlite:///casino.sqlite")
+    Base = automap_base()
 
-    # Query all Casino DB
-    results = session.query(CasinoSW.id, CasinoSW.State, CasinoSW.SuspiciousActivity, CasinoSW.Industry, CasinoSW.Long, CasinoSW.Year, CasinoSW.Countym, CasinoSW.Count, CasinoSW.Lat).limit(5).all()
+    Base.prepare(engine, reflect=True)
+    Keys = Base.classes.keys
 
+    CasinoSW = Base.classes.casinoSW
 
+    session = Session(engine)
+    results = session.query(CasinoSW.id, CasinoSW.State, CasinoSW.SuspiciousActivity, CasinoSW.Industry,
+                            CasinoSW.Long, CasinoSW.Year, CasinoSW.Countym, CasinoSW.Count, CasinoSW.Lat).all()
+
+    def decoder(obj):
+        if isinstance(obj, datetime.date):
+            return obj.isoformat()
+        elif isinstance(obj, decimal.Decimal):
+            return float(obj)
     data = []
     for a, b, c, d, e, f, g, h, i in results:
         entry = {
             "id": a,
             "state": b,
             "industry": c,
-            "long": decoder(d),
-            "year": decoder(e),
+            "long": d,
+            "year": e,
             "countym": f,
             "count": g,
-            "lat": decoder(h),
-            "suspicious": decoder(i),
+            "lat": h,
+            "suspicious": i,
         }
-        data.append(entry)
+    data.append(entry)
 
     final_results = {"data": data}
-    return final_results
+    print(final_results)
+    return render_template('index.html', data=final_results)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
