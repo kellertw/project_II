@@ -3,14 +3,6 @@
   font-family: Ubuntu, sans-serif;
 }
 
-.about_desc {
-  font-size: 1.3rem;
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-
-}
-
 .row {
   height: 300px
 }
@@ -108,8 +100,21 @@ select {
   outline: none;
 }
 
-#table-area {
-  overflow: auto;
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #007bff96;
+  border-radius: .3rem;
+  color: whitesmoke;
+}
+
+.text-justify {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+  #table-area {
+    overflow: auto;
 }
 
 #table-area th {
@@ -272,3 +277,4 @@ select {
   padding: 19%;
   font-size: x-small;
 }
+
