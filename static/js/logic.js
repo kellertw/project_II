@@ -16,7 +16,7 @@ var csvData;
 console.log('Hi!');
 
 
-d3.csv('./data/SARStats_6.csv', data => {
+d3.csv('../data/SARStats_6.csv', data => {
   csvData = data.splice(0,6);
 
   var row = d3.select('tbody').append('tr')
