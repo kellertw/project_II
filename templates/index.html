@@ -68,28 +68,33 @@
         <div id="map" class="col-lg-7 bg-secondary">
 
         </div>
-            <table id="state-table" class="col-lg-5 table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Year</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">County</th>
-                  <th class="table-head">Industry</th>
-                  <th class="table-head">Suspicious Activity</th>
-                  <th class="table-head">Count</th>
-                </tr>
-              </thead>
-              <tbody>
-                  {% for item in data %}
-                    <tr>
-                      <td>{{item['Year']}}</td>
-                    </tr>
-                  {% endfor %}
-              </tbody>
-            </table>
-          <!-- </div> -->
-        </div>
-      </div>
+        <table id="state-table" class="col-lg-5 table table-striped">
+          <thead>
+            <tr>
+              <th class="table-head">Year</th>
+              <th class="table-head">State</th>
+              <th class="table-head">County</th>
+              <th class="table-head">Industry</th>
+              <th class="table-head">Suspicious Activity</th>
+              <th class="table-head">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in results  %}
+              <tr>
+                <td>{{item.Year}}</td>
+                <td>{{item.State}}</td>
+                <td>{{item.Countym}}</td>
+                <td>{{item.Industry}}</td>
+                <td>{{item.SuspiciousActivity}}</td>
+                <td>{{item.Count}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      <!-- </div> -->
+    </div>
+  </div>
 
       <footer class="footer">
         <span class="bottom">Financial Crime in Southwestern U.S.</span>
