@@ -40,31 +40,41 @@
       <h1>Financial Crime in Casinos in the Southwest Region of the U.S.</h1>
       <p>A Heatmap of Reportings by County</p>
     </div>
-    
+
     <div class="container-fluid">
-      
+
       <div class="row mx-1 px-1">
 
         <div id="map" class="col-lg-7 bg-secondary">
 
         </div>
-  
-        <table id="state-table" class="col-lg-4 table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Year</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">County</th>
-                  <th class="table-head">Industry</th>
-                  <th class="table-head">Suspicious Activity</th>
-                  <th class="table-head">Count</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          <!-- </div> -->
-        </div>
-      </div>
+        <table id="state-table" class="col-lg-5 table table-striped">
+          <thead>
+            <tr>
+              <th class="table-head">Year</th>
+              <th class="table-head">State</th>
+              <th class="table-head">County</th>
+              <th class="table-head">Industry</th>
+              <th class="table-head">Suspicious Activity</th>
+              <th class="table-head">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in results  %}
+              <tr>
+                <td>{{item.Year}}</td>
+                <td>{{item.State}}</td>
+                <td>{{item.Countym}}</td>
+                <td>{{item.Industry}}</td>
+                <td>{{item.SuspiciousActivity}}</td>
+                <td>{{item.Count}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      <!-- </div> -->
+    </div>
+  </div>
 
       <footer class="footer">
         <span class="bottom"></span>
