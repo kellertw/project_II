@@ -4,19 +4,20 @@ var myMap = L.map("map", {
   zoom: 4
 });
 
-L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
   maxZoom: 18,
   id: "mapbox.streets-basic",
   accessToken: API_KEY
 }).addTo(myMap);
 
-var csvData;
+// var heat = L.tileLayer("")
+var csvData = '../data/SW_countyloc.csv';
 
 console.log('Hi!');
 
 
-d3.csv('../data/SARStats_6.csv', data => {
+d3.csv('../css/SW_countyloc.csv', data => {
   csvData = data.splice(0,6);
 
   var row = d3.select('tbody').append('tr')
