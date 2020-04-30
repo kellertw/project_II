@@ -6,7 +6,7 @@ import pandas as pd
 
 
 # %%
-sarstats = pd.read_csv('data/SARStats_casino.csv')
+sarstats = pd.read_csv('casino_sar/data/SARStats_casino.csv')
 sw_countyloc = pd.read_csv('data/SW_countyloc.csv')
 sarstats.head()
 
