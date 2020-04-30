@@ -12,28 +12,41 @@ var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?a
 }).addTo(myMap);
 
 // var heat = L.tileLayer("")
-var csvData = '../data/SW_countyloc.csv';
+var csvData = '/data/SW_countyloc.csv';
 
 console.log('Hi!');
 
+var mydata=[];
+d3.csv(csvData).then((data) => {
 
-d3.csv('../css/SW_countyloc.csv', data => {
-  csvData = data.splice(0,6);
+  
+  data.forEach(function(d) {
+    var lat = d.INTPTLAT;
+    var long = d.INTPLONG;
+    var name = d.NAME;
+    var dictO={
+        latitude:lat,
+        longitude:long,
+        name:name
+      }
+     mydata.push(dictO);
+  });
+  // csvData = data.splice(0,6);
+  mydata.forEach((place)=>{
+    var marker = L.marker([place.latitude,place.longitude]).addTo(mymap);
+    });
+  // var row = d3.select('tbody').append('tr')
 
-  var row = d3.select('tbody').append('tr')
+  // csvData.forEach(obj => {
+  //   var cell = row.append('td');
 
-  csvData.forEach(obj => {
-    var cell = row.append('td');
-
-    console.log(obj);
+  //   console.log(obj);
     
 
-    Object.values(obj).forEach(val => {
-      cell.text(val);
-    })
-  });
-
-})
+  //   Object.values(obj).forEach(val => {
+  //     cell.text(val);
+    // })
+});
 
 
 // Count: "17"
