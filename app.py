@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 # This is the sqlite:///... connection string that you used to connect to the casino db
-app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///casino.sqlite")
+app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///Casino.sqlite")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
