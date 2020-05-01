@@ -1,12 +1,11 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 # This is the sqlite:///... connection string that you used to connect to the casino db
-app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///Casino.sqlite")
+app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///casino.sqlite")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['DATA_FOLDER'] = "data/"
 
 db = SQLAlchemy(app)
 
@@ -27,14 +26,6 @@ class CasinoSW(db.Model):
 def index():
     results = CasinoSW.query.limit(5)
     return render_template('index.html', results=results)
-# @app.route('/uploads/<path:filename>')
-# def download_file(filename):
-#     return send_from_directory(app.config['UPLOAD_FOLDER'],
-#                                filename, as_attachment=True)
-@app.route("/data/<path:filename>")
-def getData(filename):
-    out=send_from_directory(app.config['DATA_FOLDER'],filename)
-    return out
 
 
 if __name__ == '__main__':
