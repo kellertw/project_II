@@ -11,30 +11,26 @@ var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?a
   accessToken: API_KEY
 }).addTo(myMap);
 
-// var heat = L.tileLayer("")
-var csvData = '/data/SW_countyloc.csv';
 
-console.log('Hi!');
-
-var mydata=[];
-d3.csv(csvData).then((data) => {
+// var mydata=[];
+// d3.csv(csvData).then((data) => {
 
   
-  data.forEach(function(d) {
-    var lat = d.INTPTLAT;
-    var long = d.INTPLONG;
-    var name = d.NAME;
-    var dictO={
-        latitude:lat,
-        longitude:long,
-        name:name
-      }
-     mydata.push(dictO);
-  });
-  // csvData = data.splice(0,6);
-  mydata.forEach((place)=>{
-    var marker = L.marker([place.latitude,place.longitude]).addTo(mymap);
-    });
+//   data.forEach(function(d) {
+//     var lat = d.INTPTLAT;
+//     var long = d.INTPLONG;
+//     var name = d.NAME;
+//     var dictO={
+//         latitude:lat,
+//         longitude:long,
+//         name:name
+//       }
+//      mydata.push(dictO);
+//   });
+//   // csvData = data.splice(0,6);
+//   mydata.forEach((place)=>{
+//     var marker = L.marker([place.latitude,place.longitude]).addTo(mymap);
+//     });
   // var row = d3.select('tbody').append('tr')
 
   // csvData.forEach(obj => {
@@ -46,7 +42,7 @@ d3.csv(csvData).then((data) => {
   //   Object.values(obj).forEach(val => {
   //     cell.text(val);
     // })
-});
+// });
 
 
 // Count: "17"
