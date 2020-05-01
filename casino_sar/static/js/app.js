@@ -30,3 +30,51 @@ function handleClick() {
     renderData(filteredData);
     input.property('value','');
 };
+// =========================================
+// Create Suspicious Activity Stacked Bar Chart
+var activity1 = {
+    x: ['Arizona', 'California', 'Colorado',
+        'New Mexico', 'Nevada','Utah'],
+    y: [2, 5, 5, 7, 9, 3],
+    name: 'Structuring',
+    type: 'bar'
+  };
+  
+  var activity2 = {
+    x: ['Arizona', 'California', 'Colorado',
+        'New Mexico', 'Nevada','Utah'],
+    y: [12, 18, 29, 21, 15, 13],
+    name: 'Counting Cards',
+    type: 'bar'
+  };
+  
+  var activity3 = {
+    x: ['Arizona', 'California', 'Colorado',
+        'New Mexico', 'Nevada','Utah'],
+    y: [10, 8, 9, 6, 14, 12],
+    name: 'Chip Walking',
+    type: 'bar'
+  };
+
+  var activity4 = {
+    x:  ['Arizona', 'California', 'Colorado',
+         'New Mexico', 'Nevada','Utah'],
+    y: [12, 18, 29, 23, 8, 14],
+    name: 'Intra-Casino Funds Transfers',
+    type: 'bar'
+  };
+
+  var activity5 = {
+    x:  ['Arizona', 'California', 'Colorado',
+         'New Mexico', 'Nevada','Utah'],
+    y: [12, 18, 29, 12, 19, 23],
+    name: 'Source of Chips',
+    type: 'bar'
+  };
+
+  var data = [activity1, activity2, activity3,
+            activity4, activity5];
+  
+  var layout = {barmode: 'stack'};
+  
+  Plotly.newPlot("plotly", data, layout);
