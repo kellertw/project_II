@@ -28,5 +28,21 @@ def index():
     return render_template('index.html', results=results)
 
 
+@app.route('/data')
+def data():
+    data_list = []
+    results = CasinoSW.query.all()
+    for result in results:
+        data_list.append({
+            "year": result.Year,
+            "state": result.State,
+            "countym": result.Countym,
+            "industry": result.Industry,
+            "suspiciousActivity": result.SuspiciousActivity,
+            "count": result.Count
+        })
+    return {"data": data_list}
+
+
 if __name__ == '__main__':
     app.run(debug=True)
