@@ -27,6 +27,18 @@ def index():
     results = CasinoSW.query.limit(5)
     return render_template('index.html', results=results)
 
+@app.route('/about')
+def about():
+    results = CasinoSW.query.limit(5)
+    return render_template('about.html', results=results)
+    
+@app.route('/api/v1.0/SuspiciousActivity')
+def activities():
+    session=Session(engine)
+    suspiciousActivity= session.query(casinoSW.SuspiciousActivity,casinoSW.State, func.count(casinoSW.count)).\
+        groupby(casinoSW.SuspiciousActivity).order_by(casinoSW.State).desc().all()
+    session.close()
+    return jsonify(suspiciousActivity)
 
 if __name__ == '__main__':
     app.run(debug=True)
