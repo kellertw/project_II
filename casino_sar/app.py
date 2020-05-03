@@ -24,7 +24,7 @@ class CasinoSW(db.Model):
 
 @app.route('/')
 def index():
-    results = CasinoSW.query.limit(5)
+    results = CasinoSW.query.limit(7)
     return render_template('index.html', results=results)
 
 @app.route('/about')
