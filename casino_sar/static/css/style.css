@@ -135,12 +135,12 @@ select {
   transform: scale(.96);
 }
 
-#map:hover {
-  transform: scale(1.01);
+img:hover {
+  transform: scale(1.5);
 }
 
-img:hover {
-  transform: scale(1.05);
+#map:hover {
+  transform: scale(1.01);
 }
 
 .loader {
