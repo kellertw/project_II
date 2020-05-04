@@ -1,80 +1,45 @@
-from data.js
-var tableData = data;
-var tbody = d3.select('tbody');
-var input = d3.select('input');
-var btn = d3.select('button');
+// // Use D3 fetch to read the JSON file
 
-renderData(tableData);
-btn.on('click', handleClick);
+// The data from the JSON file is arbitrarily named importedData as the argument
+d3.json("/api/v1.0/fincrimes")
+  .then(function(importedData){
+  // console.log(importedData);
+  var data = importedData;
 
-// =========================================
-function renderData(data) {
-    tbody.html('');
+//   // Sort the data array using the Count value
+  data.sort(function(a, b) {
+    return parseFloat(b.Count) - parseFloat(a.Count);
+  });
 
-    data.forEach(tableRow => {
-        var row = tbody.append('tr');
-        Object.values(tableRow).forEach(val => {
-            var cell = row.append('td');
-            cell.text(val);
-        });
-    });
-};
+//   // Slice the first 10 objects for plotting
+  data = data.slice(0, 10);
 
-function handleClick() {
-    var date = input.property('value');
-    var filteredData = tableData;
+//   // Reverse the array due to Plotly's defaults
+  data = data.reverse();
 
-    if (date) {
-        filteredData = filteredData.filter(row => row.state === date)
-    };
-    renderData(filteredData);
-    input.property('value','');
-};
-// =========================================
-// Create Suspicious Activity Stacked Bar Chart
-var activity1 = {
-    x: ['Arizona', 'California', 'Colorado',
-        'New Mexico', 'Nevada','Utah'],
-    y: [2, 5, 5, 7, 9, 3],
-    name: 'Structuring',
-    type: 'bar'
+//   // Trace1 for the SuspiciousActivity Data
+  var trace1 = {
+    x: data.map(row => row.Count),
+    y: data.map(row => row.State),
+    text: data.map(row => row.State),
+    name: "SuspiciousActivity",
+    type: "bar",
+    orientation: "h"
   };
-  
-  var activity2 = {
-    x: ['Arizona', 'California', 'Colorado',
-        'New Mexico', 'Nevada','Utah'],
-    y: [12, 18, 29, 21, 15, 13],
-    name: 'Counting Cards',
-    type: 'bar'
-  };
-  
-  var activity3 = {
-    x: ['Arizona', 'California', 'Colorado',
-        'New Mexico', 'Nevada','Utah'],
-    y: [10, 8, 9, 6, 14, 12],
-    name: 'Chip Walking',
-    type: 'bar'
+//   // data
+  var chartData = [trace1];
+
+//   // Apply the group bar mode to the layout
+  var layout = {
+    title: "SuspiciousActivity gods search results",
+    margin: {
+      l: 100,
+      r: 100,
+      t: 100,
+      b: 100
+    }
   };
 
-  var activity4 = {
-    x:  ['Arizona', 'California', 'Colorado',
-         'New Mexico', 'Nevada','Utah'],
-    y: [12, 18, 29, 23, 8, 14],
-    name: 'Intra-Casino Funds Transfers',
-    type: 'bar'
-  };
-
-  var activity5 = {
-    x:  ['Arizona', 'California', 'Colorado',
-         'New Mexico', 'Nevada','Utah'],
-    y: [12, 18, 29, 12, 19, 23],
-    name: 'Source of Chips',
-    type: 'bar'
-  };
-
-  var data = [activity1, activity2, activity3,
-            activity4, activity5];
-  
-  var layout = {barmode: 'stack'};
-  
-  Plotly.newPlot("plotly", data, layout);
+  // Render the plot to the div tag with id "plot"
+  Plotly.newPlot("plotly", chartData, layout);
+});
