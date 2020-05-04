@@ -8,8 +8,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///casino.sqlite")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
-
 class CasinoSW(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     State = db.Column(db.String)
@@ -20,8 +18,6 @@ class CasinoSW(db.Model):
     Year = db.Column(db.String)
     Countym = db.Column(db.String)
     Count = db.Column(db.String)
-
-
 @app.route('/')
 def index():
     results = CasinoSW.query.limit(7)
