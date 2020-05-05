@@ -15,44 +15,47 @@ var street = L.tileLayer(
   }
 ).addTo(myMap);
 
-var mydata = [];
 
-d3.json("http://127.0.0.1:5000/county", function (data) {
-  data.forEach(function (d) {
-    var lat = d.Lat;
-    var long = d.Long;
-    var name = d.State;
-    var industry = d.Industry;
-    var place = {
-      latitude: lat,
-      longitude: long,
-      name: name,
-      industry: industry,
-    };
-    var color;
-    switch (place.industry) {
-      case " State Licensed Casino":
-        color = "blue";
-        break;
-       case " Card Club":
-          color = 'red';
+function getData() {
+  
+  d3.json("http://127.0.0.1:5000/county").then( function (data) {
+    data.forEach(function (d) {
+      var lat = d.Lat;``
+      var long = d.Long;
+      var name = d.State;
+      var industry = d.Industry;
+      var place = {
+        latitude: lat,
+        longitude: long,
+        name: name,
+        industry: industry,
+      };
+      var color;
+      switch (place.industry) {
+        case " State Licensed Casino":
+          color = "blue";
           break;
-      // case 'W':
-      //     color = 'white';
-      //     break;
-      // case 'K': // as in kobolt
-      //     color = 'black';
-      //     break;
-      default:
-        color = "green";
-        break;
-    }
-    var circle = L.circle([place.latitude, place.longitude], {
-      color: color,
-      fillOpacity: 0.5,
-      radius: 12000,
-    }).addTo(myMap);
-    circle.bindPopup(place.industry).openPopup();
-    //  mydata.push(dictO);
+        case " Card Club":
+          color = "red";
+          break;
+        // case 'W':
+        //     color = 'white';
+        //     break;
+        // case 'K': // as in kobolt
+        //     color = 'black';
+        //     break;
+        default:
+          color = "green";
+          break;
+      }
+      var circle = L.circle([place.latitude, place.longitude], {
+        color: color,
+        fillOpacity: 0.5,
+        radius: 12000,
+      }).addTo(myMap);
+      circle.bindPopup(place.industry).openPopup();
+      //  mydata.push(dictO);
+    });
   });
-});
+};
+getData();
