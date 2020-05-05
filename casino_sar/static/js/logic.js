@@ -34,9 +34,9 @@ d3.json("http://127.0.0.1:5000/county", function (data) {
       case " State Licensed Casino":
         color = "blue";
         break;
-      // case 'R':
-      //     color = 'red';
-      //     break;
+       case " Card Club":
+          color = 'red';
+          break;
       // case 'W':
       //     color = 'white';
       //     break;
@@ -44,13 +44,13 @@ d3.json("http://127.0.0.1:5000/county", function (data) {
       //     color = 'black';
       //     break;
       default:
-        color = "Red";
+        color = "green";
         break;
     }
     var circle = L.circle([place.latitude, place.longitude], {
       color: color,
       fillOpacity: 0.5,
-      radius: 8000,
+      radius: 12000,
     }).addTo(myMap);
     circle.bindPopup(place.industry).openPopup();
     //  mydata.push(dictO);
