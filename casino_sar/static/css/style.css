@@ -132,11 +132,6 @@ select {
 #map {
   box-shadow: 5px 5px 17px grey;
   margin-right: 2%;
-<<<<<<< HEAD
-  height:500px;
-  width:1200px;
-||||||| 3572f0b
-=======
   transform: scale(.96);
 }
 
@@ -146,7 +141,6 @@ img:hover {
 
 #map:hover {
   transform: scale(1.01);
->>>>>>> master
 }
 
 .loader {
@@ -293,13 +287,6 @@ img:hover {
   color: #212529;
   padding: 19.7%;
   font-size: x-small;
-<<<<<<< HEAD
-}
-||||||| 3572f0b
-}
-
-=======
   background-color: whitesmoke;
 }
 
->>>>>>> master
