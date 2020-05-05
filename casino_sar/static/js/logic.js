@@ -11,11 +11,29 @@ var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?a
   accessToken: API_KEY
 }).addTo(myMap);
 
+var mydata=[];
+d3.json("http://127.0.0.1:5000/county",function(data){
+  data.forEach(function(d) {
+        var lat = d.Lat;
+        var long = d.Long;
+        var name = d.State;
+        var industry = d.Industry
+        var place={
+            latitude:lat,
+            longitude:long,
+            name:name,
+            industry:industry
+          }
+          var circle = L.marker([place.latitude,place.longitude],{
+            
+          }).addTo(myMap);
+            circle.bindPopup(place.industry).openPopup();
+    //  mydata.push(dictO);
+  })
 
-// var mydata=[];
-// d3.csv(csvData).then((data) => {
+});
 
-  
+
 //   data.forEach(function(d) {
 //     var lat = d.INTPTLAT;
 //     var long = d.INTPLONG;
@@ -28,9 +46,7 @@ var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?a
 //      mydata.push(dictO);
 //   });
 //   // csvData = data.splice(0,6);
-//   mydata.forEach((place)=>{
-//     var marker = L.marker([place.latitude,place.longitude]).addTo(mymap);
-//     });
+//   
   // var row = d3.select('tbody').append('tr')
 
   // csvData.forEach(obj => {

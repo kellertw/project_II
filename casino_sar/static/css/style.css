@@ -130,6 +130,8 @@ select {
 #map {
   box-shadow: 5px 5px 17px grey;
   margin-right: 2%;
+  height:500px;
+  width:1200px;
 }
 
 .loader {
