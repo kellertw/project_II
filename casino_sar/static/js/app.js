@@ -1,35 +1,17 @@
 // // Use D3 fetch to read the JSON file
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 // The data from the JSON file is arbitrarily named importedData as the argument
 d3.json("/api/v1.0/fincrimes")
   .then(function(importedData){
   // console.log(importedData);
   var data = importedData;
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 //   // Sort the data array using the Count value
   data.sort(function(a, b) {
     return parseFloat(b.Count) - parseFloat(a.Count);
   });
-<<<<<<< HEAD
-
-//   // Slice the first 10 objects for plotting
-  data = data.slice(0, 10);
-
-//   // Reverse the array due to Plotly's defaults
-  data = data.reverse();
-
-=======
 //   // Slice the first 10 objects for plotting
   data = data.slice(0, 10);
 //   // Reverse the array due to Plotly's defaults
   data = data.reverse();
->>>>>>> master
 //   // Trace1 for the SuspiciousActivity Data
   var trace1 = {
     x: data.map(row => row.Count),
@@ -41,10 +23,6 @@ d3.json("/api/v1.0/fincrimes")
   };
 //   // data
   var chartData = [trace1];
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 //   // Apply the group bar mode to the layout
   var layout = {
     title: "SuspiciousActivity gods search results",
@@ -55,10 +33,6 @@ d3.json("/api/v1.0/fincrimes")
       b: 100
     }
   };
-<<<<<<< HEAD
-
-=======
->>>>>>> master
   // Render the plot to the div tag with id "plot"
   Plotly.newPlot("plotly", chartData, layout);
 });
