@@ -23,6 +23,11 @@ class CasinoSW(db.Model):
 def index():
     results = CasinoSW.query.limit(5)
     return render_template('index.html', results=results)
+    # @app.route('/about')
+
+# def about():
+#     results = CasinoSW.query.limit(5)
+#     return render_template('about.html', results=results)
 @app.route('/api/v1.0/fincrimes')
 def fincrimes():
     # fincrimes = CasinoSW.query
