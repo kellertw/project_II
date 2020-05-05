@@ -4,7 +4,8 @@
 }
 
 .row {
-  height: 300px
+  height: 400px;
+  text-align: center;
 }
 
 html,
@@ -12,6 +13,7 @@ body {
   height: 200vh;
   padding: 0;
   margin: 0;
+  background-image: url("../images/Background.jpg");
 }
 
 /* The wrapper contains all of the page's content besides the footer, which is pushed to the bottom of the page */
@@ -130,6 +132,18 @@ select {
 #map {
   box-shadow: 5px 5px 17px grey;
   margin-right: 2%;
+<<<<<<< HEAD:casino_sar/static/css/style.css
+=======
+  transform: scale(.96);
+}
+
+img:hover {
+  transform: scale(1.5);
+}
+
+#map:hover {
+  transform: scale(1.01);
+>>>>>>> master:static/css/style.css
 }
 
 .loader {
@@ -272,9 +286,17 @@ select {
 
 .table {
   width: 100%;
+<<<<<<< HEAD:casino_sar/static/css/style.css
   margin-bottom: 1rem;
   color: #212529;
   padding: 19%;
   font-size: x-small;
+=======
+  margin: 1.4rem;
+  color: #212529;
+  padding: 19.7%;
+  font-size: x-small;
+  background-color: whitesmoke;
+>>>>>>> master:static/css/style.css
 }
 
