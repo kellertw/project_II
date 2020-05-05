@@ -104,7 +104,7 @@ def counties():
         counties.append(entry)
     final_result = {"counties":counties}
     return jsonify(counties)
-@app.route("/Suspicious Activity")
+@app.route("/SuspiciousActivity")
 def suspicious_act():
     # session = Session(engine)
     suspicious_activity = db.session.query(CasinoSW.SuspiciousActivity,  CasinoSW.State, CasinoSW.Countym, CasinoSW.Industry, CasinoSW.Year, str(CasinoSW.Lat), str(CasinoSW.Long), func.sum(CasinoSW.Count)).\
