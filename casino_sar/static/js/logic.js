@@ -1,36 +1,58 @@
 // Create a map object
 var myMap = L.map("map", {
-  center: [33.31, -114.70],
-  zoom: 4
+  center: [33.31, -114.7],
+  zoom: 5,
 });
 
-var street = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.streets-basic",
-  accessToken: API_KEY
-}).addTo(myMap);
+var street = L.tileLayer(
+  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+  {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: "mapbox.streets-basic",
+    accessToken: API_KEY,
+  }
+).addTo(myMap);
 
-var mydata=[];
-d3.json("http://127.0.0.1:5000/county",function(data){
-  data.forEach(function(d) {
-        var lat = d.Lat;
-        var long = d.Long;
-        var name = d.State;
-        var industry = d.Industry
-        var place={
-            latitude:lat,
-            longitude:long,
-            name:name,
-            industry:industry
-          }
-          var circle = L.marker([place.latitude,place.longitude],{
+var mydata = [];
 
-          }).addTo(myMap);
-            circle.bindPopup(place.industry).openPopup();
+d3.json("http://127.0.0.1:5000/county", function (data) {
+  data.forEach(function (d) {
+    var lat = d.Lat;
+    var long = d.Long;
+    var name = d.State;
+    var industry = d.Industry;
+    var place = {
+      latitude: lat,
+      longitude: long,
+      name: name,
+      industry: industry,
+    };
+    var color;
+    switch (place.industry) {
+      case " State Licensed Casino":
+        color = "blue";
+        break;
+      // case 'R':
+      //     color = 'red';
+      //     break;
+      // case 'W':
+      //     color = 'white';
+      //     break;
+      // case 'K': // as in kobolt
+      //     color = 'black';
+      //     break;
+      default:
+        color = "Red";
+        break;
+    }
+    var circle = L.circle([place.latitude, place.longitude], {
+      color: color,
+      fillOpacity: 0.5,
+      radius: 8000,
+    }).addTo(myMap);
+    circle.bindPopup(place.industry).openPopup();
     //  mydata.push(dictO);
-  })
-
+  });
 });
-
-
