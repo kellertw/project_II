@@ -1,3 +1,13 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\bocli\\Anaconda3\\envs\\Pet_pals_env\\python.exe"
+||||||| 3572f0b
+    "python.pythonPath": "C:\\Users\\wargo\\Anaconda3\\envs\\casino_sar_env\\python.exe"
+=======
+    "python.pythonPath": "C:\\Users\\kehoc\\Anaconda3\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": false
+>>>>>>> master
 }

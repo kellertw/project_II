@@ -55,4 +55,18 @@ d3.json("http://127.0.0.1:5000/county", function (data) {
     circle.bindPopup(place.industry).openPopup();
     //  mydata.push(dictO);
   });
+<<<<<<< HEAD
 });
+||||||| 3572f0b
+
+})
+
+
+// Count: "17"
+// Countym: "Maricopa County, AZ"
+// Industry: "Casino/Card Club - Tribal Authorized Casino"
+// State: "Arizona"
+// Year Month: "2014 January"
+=======
+});
+>>>>>>> master
