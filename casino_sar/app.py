@@ -64,14 +64,13 @@ def fincrimes():
 def industryType():
     """Return a list fo types of industry with their number for each state"""
     # session = Session(engine)
-    results = db.session.query(CasinoSW.Industry, CasinoSW.State, CasinoSW.Year, str(CasinoSW.Lat), str(CasinoSW.Long), func.sum(CasinoSW.Count)).\
-        group_by(CasinoSW.Industry, CasinoSW.State, CasinoSW.Year).order_by(func.sum(CasinoSW.Count).desc()).all()
+    results = db.session.query(CasinoSW.Industry, CasinoSW.State, str(CasinoSW.Lat), str(CasinoSW.Long), func.sum(CasinoSW.Count)).\
+        group_by(CasinoSW.Industry, CasinoSW.State).order_by(func.sum(CasinoSW.Count).desc()).all()
     industry = []
-    for a,b,c,d,e,f in results:
+    for a,b,d,e,f in results:
         entry = {
             "Industry": a,
             "State": b,
-            "Year": c,
             "Lat": d,
             "Long": e,
             "Count":f
@@ -114,23 +113,18 @@ def counties():
     final_result = {"counties":counties}
     return jsonify(counties)
 
-@app.route("/Suspicious Activity")
+@app.route("/SuspiciousActivity")
 def suspicious_act():
     # session = Session(engine)
-    suspicious_activity = db.session.query(CasinoSW.SuspiciousActivity,  CasinoSW.State, CasinoSW.Countym, CasinoSW.Industry, CasinoSW.Year, str(CasinoSW.Lat), str(CasinoSW.Long), func.sum(CasinoSW.Count)).\
-        group_by(CasinoSW.SuspiciousActivity, CasinoSW.State, CasinoSW.Industry, CasinoSW.Countym, CasinoSW.Year).order_by(func.sum(CasinoSW.Count).desc()).all()
+    suspicious_activity = db.session.query(CasinoSW.SuspiciousActivity,  CasinoSW.State, func.sum(CasinoSW.Count)).\
+        group_by(CasinoSW.State, CasinoSW.SuspiciousActivity).order_by(func.sum(CasinoSW.Count)).all()
     # session.close()
     activities = []
-    for a,b,c,d,e,f,g, h in suspicious_activity:
+    for a,b,c in suspicious_activity:
         entry = {
             "SuspiciousActivity": a,
-            "Countym": b,
-            "State": c,
-            "Industry": d,
-            "Year": e,
-            "Lat": f,
-            "Long": g,
-            "Count": h
+            "State": b,
+            "Count": c
         }
         activities.append(entry)
     final_result = {"activities":activities}

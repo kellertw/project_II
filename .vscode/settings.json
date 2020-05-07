@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\kehoc\\Anaconda3\\python.exe",
+    "python.pythonPath": "/opt/anaconda3/envs/casino_crimes_env/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
     "python.linting.enabled": true,
