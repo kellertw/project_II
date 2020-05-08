@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 app = Flask(__name__)
 # This is the sqlite:///... connection string that you used to connect to the casino db
-app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///Casino.sqlite")
+app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///casino.sqlite")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 engine = create_engine("sqlite:///sqliteCasino.")
 db = SQLAlchemy(app)

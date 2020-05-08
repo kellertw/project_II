@@ -1,3 +1,8 @@
 {
     "python.pythonPath": "/Users/desireade/opt/anaconda3/bin/python"
+    "python.pythonPath": "C:\\Users\\wargo\\Anaconda3\\envs\\casino_sar_env\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": false
 }
