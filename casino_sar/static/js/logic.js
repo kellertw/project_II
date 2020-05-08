@@ -3,7 +3,6 @@ var myMap = L.map("map", {
   center: [33.31, -114.7],
   zoom: 5,
 });
-
 var street = L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
   {
@@ -14,10 +13,7 @@ var street = L.tileLayer(
     accessToken: API_KEY,
   }
 ).addTo(myMap);
-
-
 function getData() {
-  
   d3.json("/county").then( function (data) {
     data.forEach(function (d) {
       var lat = d.Lat;``
