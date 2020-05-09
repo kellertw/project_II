@@ -1,3 +1,5 @@
+var theData;
+
 // // Use D3 fetch to read the JSON file
 // The data from the JSON file is arbitrarily named importedData as the argument
 d3.json("/SuspiciousActivity").then(function (importedData) {
@@ -52,7 +54,8 @@ d3.json("/SuspiciousActivity").then(function (importedData) {
   d3.json(url).then(function (importedData) {
     // console.log(importedData);
     var data = importedData;
-    // console.log(data);
+    theData = importedData;
+    console.log(data);
 
     var az = data.filter((d) => d.State === "Arizona");
     var ca = data.filter((d) => d.State === "California");
@@ -60,7 +63,7 @@ d3.json("/SuspiciousActivity").then(function (importedData) {
     var nv = data.filter((d) => d.State === "Nevada");
     var nm = data.filter((d) => d.State === "New Mexico");
     var ut = data.filter((d) => d.State === "Utah");
-    // console.log(az);
+    console.log(az);
 
     // });
 
@@ -75,6 +78,7 @@ d3.json("/SuspiciousActivity").then(function (importedData) {
     // Create an array of labels
     var labels = az.map((a) => a.Industry);
     var values = az.map((a) => a.Count);
+    // console.log(labels);
   // });
 // }
     // function init() {
@@ -111,20 +115,49 @@ d3.json("/SuspiciousActivity").then(function (importedData) {
     // Initialize an empty array for the country's data
     var data = [];
 
-    if (dataset == "az") {
-      data = az;
-    } else if (dataset == "ca") {
-      data = ca;
-    } else if (dataset == "co") {
-      data = co;
+    switch (dataset){
+      case "AZ":
+        data = theData.filter(d => d.State === "Arizona");
+        data = data.map(e => e.Count);
+        break;
+      case "CA":
+        data = theData.filter(d => d.State === "California");
+        data = data.map(e => e.Count);
+        break;
+      case "CO":
+        data = theData.filter(d => d.State === "Colorado");
+        data = data.map(e => e.Count);
+        break;
+      case "NM":
+        data = theData.filter(d => d.State === "New Mexico");
+        data = data.map(e => e.Count);
+        break;
+      case "NV":
+        data = theData.filter(d => d.State === "Nevada");
+        data = data.map(e => e.Count);
+        break;
+      case "UT":
+        data = theData.filter(d => d.State === "Utah");
+        data = data.map(e => e.Count);
+      default:
+        break;
     }
-    if (dataset == "nv") {
-      data = nv;
-    } else if (dataset == "nm") {
-      data = nm;
-    } else if (dataset == "ut") {
-      data = ut;
-    }
+    // if (dataset == "az") {
+    //   data = 
+    // } else if (dataset == "ca") {
+    //   data = ca;
+    // } else if (dataset == "co") {
+    //   data = co;
+    // }
+    // if (dataset == "nv") {
+    //   data = nv;
+    // } else if (dataset == "nm") {
+    //   data = nm;
+    // } else if (dataset == "ut") {
+    //   data = ut;
+    // }
+
+
 
     // Call function to update the chart
     updatePlotly(data);
