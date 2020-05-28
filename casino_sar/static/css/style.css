@@ -1,3 +1,7 @@
+.tableDiv {
+  overflow: auto;
+}
+
 * {
   box-sizing: border-box;
   font-family: Ubuntu, sans-serif;
@@ -128,6 +132,7 @@ select {
 #table-area th:nth-child(6) {
   min-width: 80px;
 }
+
 
 #map {
   box-shadow: 5px 5px 17px grey;
@@ -289,4 +294,5 @@ img:hover {
   font-size: x-small;
   background-color: whitesmoke;
 }
+
 
