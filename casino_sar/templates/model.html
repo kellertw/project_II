@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Financial Crime in Casinos in the Southwest Region of the U.S.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+   <!-- d3 JS -->
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- Marker Cluster JS & CSS -->
+   <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+   <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <!--Favicon-->
+  <link rel="icon" href="../static/images/Money Icon.jpg" sizes="32x32">
+</head>
+
+<body>
+  <nav class="navbar navbar-default fixed-top shadow shadow-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <!-- Logo Image -->
+          <img src="../static/images/Money Icon.jpg" width="50" alt="" class="d-inline-block align-middle">
+        <a class="navbar-brand" href="/home">Home </a>  
+        <a class="navbar-brand" href="/model">Model </a>
+        <a class="navbar-brand" href="/about">About </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-lg-7 mx-4 bg-white mt-4">
+        <h2>Summary: Training Models</h2>
+        <hr>
+        <img src="../static/images/ML_1.png" alt="Fig1.png" class="w-50 float-left">
+        <p class="text-justify p-3">Utilizing sqlite database queries to construct Python DataFrames in order to analyze connections between SARS reporting and
+          other variables within dataset. </p>
+        <p class="text-justify p-3">I was able to convert the "Industry" column into categorical data which was necessary for our modeling. I created a dictionary of
+          dictionaries with the column objects inside the nested dictionary assigned to ordinal values. Afterwards, I ran the .replace() function 
+          to execute the conversion.</p>
+        <p class="text-justify p-3">The model I am working with utilizes components of both supervised and unsupervised machine learning. First, a pipeline is established
+          that scales the model, reduces dimensionality, and provides the test sample of the model all within the same cell. 
+          Then I call the dependencies and imports. RunTest() is a function that tests my model using the pipeline's preprocessing output
+          as its parameters. Once RunTest() completes, the last step is to loop through each of the libraries I called prior to setting up the 
+          pipeline and RunTest(). All dependencies and libraries containing the statistical tests I wish to use are declared before the function,
+          RunTest(), is executed. The cell then returns the model's precision as well as the model that yielded the highest precision score and
+          the number of features it looped through to get those results. </p>
+        <p class="text-justify p-3">In order to run our first machine learning test, I dropped columns containing string values keeping only "Count", "Year", and "Industry"
+          and converted the "Count" column datatypes. to float using .to_numeric(). The first attempt at building a machine learning model yielded 
+          a result, which I consider to be a success. However, the results of the model were very poor at discerning a connection between our 
+          variable of interest, "Industry" and the SARS count of our study. The results yielded a precision of 0.52, which does not fair much 
+          better than a coin toss. Another problem is the inconsistency of this model as well. Rerunning the cell about five times yielded the 
+          following: 3 times result was Random Forest Classifier the optimal test for precision, then 1 time result of SVC and 1 time result of
+          KNearestNeighbors. The precision score did not vary greatly between the five results either which may be positive in terms of precision 
+          consistency, but not so much in terms of overall reliability of the model.</p>
+        <p class="text-justify p-3"> A possible source for these problems may reducing too many features for any significant comparision (n=3). Without other variables,
+          this model does not have much to work with aside from type of "Industry", "Year", and "Count" as analysis-ready variables. Assigning
+          "Suspicious Activity"'s contents to categorical bins and running analyses on those bins may be worth looking into for further analysis.</p>
+        <p class="text-justify p-3">The overall motivation behind this method of machine learning is to engage in auto-tuning the hyperparameters of model-building. Auto-
+          mating as many aspects of machine learning would reduce the amount of human influence such as bias, mishandling of the data, mistakes
+          setting up the tests, and other such errors. While this model is not close to removing all human influence in machine learning model-
+          building, it is a step closer to doing so. </p>
+      </div>
+      <div class="col-lg-4 bg-white mt-4 ml-4" style="height: min-content;">
+          <hr>
+          <div class="row">
+            <div class="col-lg-6"><a href="./visualization/temp.html"><img class="w-100" src="../static/images/ML_1.png" alt="Fig1.png"></a></div>
+            <div class="col-lg-6"><a href="./visualization/humidity.html"><img class="w-100" src="./Resources/assets/images/Fig2.png" alt="Fig2.png"></a></div>
+            <div class="col-lg-6"><a href="./visualization/cloud.html"><img class="w-100" src="./Resources/assets/images/Fig3.png" alt="Fig3.png"></a></div>
+            <div class="col-lg-6"><a href="./visualization/wind.html"><img class="w-100" src="./Resources/assets/images/Fig4.png" alt="Fig4.png"></a></div>
+          </div>
+      </div>
+    </div>
+  </div>   
+
+    </div>
+    <footer class="footer">
+        <span class="bottom"></span>
+      </footer>
+    </div>
+    <!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
+  <script type="text/javascript" src="../static/js/config.js"></script>
+  <script type="text/javascript" src="../static/js/logic.js"></script>
+  <script type="text/javascript" src="../static/js/app.js"></script>
+</body>
+</html>

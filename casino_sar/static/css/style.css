@@ -1,5 +1,7 @@
-.tableDiv {
-  overflow: auto;
+#tableDiv {
+  height: 400px !important;
+  overflow: scroll;
+  margin-left: 2%;
 }
 
 * {
@@ -199,6 +201,10 @@ img:hover {
   color: #8e979f;
 }
 
+.mt-4, .my-4 {
+  margin-top: 5.0rem!important;
+}
+
 /* media queries which will only be activated at specific screen sizes */
 @media (max-width: 800px) {
   #table-area td {
@@ -210,7 +216,6 @@ img:hover {
   #table-area thead {
     display: none;
   }
-
   
   #table-area tr td:first-child {
     font-size: 1.5em;
@@ -288,11 +293,9 @@ img:hover {
 
 .table {
   width: 100%;
-  margin: 1.4rem;
   color: #212529;
   padding: 19.7%;
   font-size: x-small;
   background-color: whitesmoke;
 }
-
 

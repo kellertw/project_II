@@ -21,14 +21,22 @@ class CasinoSW(db.Model):
     Count = db.Column(db.String)
     
 @app.route('/')
-def index():
+def landingpg():
+    return render_template('landingpg.html')
+
+@app.route('/home')
+def home():
     results = CasinoSW.query
+    print(results)
     return render_template('index.html', results=results)
+
+@app.route('/model')
+def model():
+    return render_template('model.html')
 
 @app.route('/about')
 def about():
-    results = CasinoSW.query.limit(5)
-    return render_template('about.html', results=results)
+    return render_template('about.html')
 
 @app.route('/api/v1.0/fincrimes')
 def fincrimes():
@@ -112,6 +120,25 @@ def counties():
         counties.append(entry)
     final_result = {"counties":counties}
     return jsonify(counties)
+
+# Table data
+@app.route('/api/v1.0/tableData')
+def tableData():
+    results = db.session.query(CasinoSW.Year, CasinoSW.State, CasinoSW.Countym, CasinoSW.Industry,
+    CasinoSW.SuspiciousActivity, CasinoSW.Count).all()
+    tableData = []
+
+    for year,state,county,industry,activity,count in results:
+        tableDict = {}
+        tableDict['year'] = year
+        tableDict['state'] = state
+        tableDict['county'] = county
+        tableDict['industry'] = industry
+        tableDict['activity'] = activity
+        tableDict['count'] = count
+        tableData.append(tableDict)    
+    return jsonify(tableData)
+
 
 @app.route("/SuspiciousActivity")
 def suspicious_act():

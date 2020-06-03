@@ -44,9 +44,6 @@ d3.json("/SuspiciousActivity").then(function (importedData) {
       b: 100,
     },
   };
-  // Render the plot to the div tag with id "plot"
-  Plotly.newPlot("plotly", chartData, layout);
-});
 
 // function buildPlot() {
   const url = "/industry";
