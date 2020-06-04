@@ -1,0 +1,26 @@
+Utilizing sqlite database queries to construct Python DataFrames in order to analyze connections between SARS reporting and
+other variables within dataset. 
+
+Our group was able to convert the "Industry" column into categorical data which was necessary for our modeling. We created a dictionary of
+dictionaries with the column objects inside the nested dictionary assigned to ordinal values. Afterwards, we cleaned the data by
+running the .replace() function.
+
+The model we worked with with utilizes components of both supervised and unsupervised machine learning. First, we established a pipeline
+that scales the model, reduces dimensionality, and provides the test sample of the model all within the same cell. 
+Then we called the dependencies and imports. RunTest() is a function that tests our model using the pipeline's preprocessing output
+as its parameters. Once RunTest() completes, the last step is to loop through each of the libraries we called prior to setting up the 
+pipeline and RunTest(). All dependencies and libraries containing the statistical tests we used are declared before the function,
+RunTest(), is executed. The cell then returns the model's precision as well as the model that yielded the highest precision score and
+the number of features it looped through to get those results. 
+
+In order to run our first machine learning test, we dropped columns containing string values keeping only "Count", "Year", and "Industry"
+and converted the "Count" column datatypes. to float using .to_numeric(). The first attempt at building a machine learning model yielded 
+were very poor results at discerning a connection between our variable of interest, "Industry" and the SARS count of our study. A possible source for these problems may be reducing too many features for any significant comparision (n=3). Without other variables,
+this model does not have other explanatory variables for a comparison. Assigning dummy variables to the  "Suspicious Activity" column
+is a future endeavor. 
+
+The overall motivation behind this method of machine learning is to engage in auto-tuning the hyperparameters of model-building. Auto-
+mating as many aspects of machine learning would reduce the amount of human influence such as bias, mishandling of the data, mistakes,
+and other such errors. While this model is not close to removing all human influence in machine learning,
+this project provided us with an opportunity to utilize machine learning in a realistic situation in which we will be able to implement
+for future tasks. 
