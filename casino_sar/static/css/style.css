@@ -1,3 +1,4 @@
+
 #tableDiv {
   height: 400px !important;
   overflow: scroll;
@@ -139,6 +140,11 @@ select {
 #map {
   box-shadow: 5px 5px 17px grey;
   margin-right: 2%;
+  transform: scale(.96);
+}
+
+#ml_img:hover {
+  box-shadow: 5px 5px 17px grey;
   transform: scale(.96);
 }
 
