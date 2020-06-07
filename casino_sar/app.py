@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
+import numpy as np
 app = Flask(__name__)
 # This is the sqlite:///... connection string that you used to connect to the casino db
 app.config['SQLALCHEMY_DATABASE_URI'] = ("sqlite:///casino.sqlite")
@@ -22,13 +23,32 @@ class CasinoSW(db.Model):
     
 @app.route('/')
 def index():
+    return render_template('landingpg.html')
+
+@app.route('/home')
+def home():
     results = CasinoSW.query
     return render_template('index.html', results=results)
 
+@app.route('/model')
+def model():
+    return render_template('model.html')
+
+@app.route('/model2')
+def model2():
+    return render_template('model2.html')
+
+@app.route('/model3')
+def model3():
+    return render_template('model3.html')
+
+@app.route('/visualization')
+def visualization():
+    return render_template('visualization.html')
+
 @app.route('/about')
 def about():
-    results = CasinoSW.query.limit(5)
-    return render_template('about.html', results=results)
+    return render_template('about.html')
 
 @app.route('/api/v1.0/fincrimes')
 def fincrimes():
@@ -104,7 +124,7 @@ def counties():
             "Countym": a,
             "State": b,
             "Industry": c,
-            "Year": d,
+            "Year": d, 
             "Lat": e,
             "Long": f,
             "Count": g
@@ -113,21 +133,23 @@ def counties():
     final_result = {"counties":counties}
     return jsonify(counties)
 
-@app.route('/data')
-def data():
-    data_list = []
-    results = CasinoSW.query.all()
-    for result in results:
-        data_list.append({
-            "year": result.Year,
-            "state": result.State,
-            "countym": result.Countym,
-            "industry": result.Industry,
-            "suspiciousActivity": result.SuspiciousActivity,
-            "count": result.Count
-        })
-    return {"data": data_list}
+# Table data
+@app.route('/api/v1.0/tableData')
+def tableData():
+    results = db.session.query(CasinoSW.Year, CasinoSW.State, CasinoSW.Countym, CasinoSW.Industry,
+    CasinoSW.SuspiciousActivity, CasinoSW.Count).all()
+    tableData = []
 
+    for year,state,county,industry,activity,count in results:
+        tableDict = {}
+        tableDict['year'] = year
+        tableDict['state'] = state
+        tableDict['county'] = county
+        tableDict['industry'] = industry
+        tableDict['activity'] = activity
+        tableDict['count'] = count
+        tableData.append(tableDict)    
+    return jsonify(tableData)
 
 @app.route("/SuspiciousActivity")
 def suspicious_act():

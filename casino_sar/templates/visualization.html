@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Financial Crime in Casinos in the Southwest Region of the U.S.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+   <!-- d3 JS -->
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- Marker Cluster JS & CSS -->
+   <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+   <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <!--Favicon-->
+  <link rel="icon" href="../static/images/Money Icon.jpg" sizes="32x32">
+  <style>
+    div#viz1591147388726 iframe {
+      width: 100% !important;
+    }
+    div#viz1591145575283 iframe {
+      width: 50% !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default fixed-top shadow shadow-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <!-- Logo Image -->
+          <img src="../static/images/Money Icon.jpg" width="50" alt="" class="d-inline-block align-middle">
+          <a class="navbar-brand" href="/home">Home </a>
+          <a class="navbar-brand" href="/model">Model </a>
+          <a class="navbar-brand" href="/visualization">Visualization </a>
+          <a class="navbar-brand" href="/about">About </a>
+      </div>
+    </div>
+  </nav>
+
+  </head>
+  <body>
+
+    <div class='tableauPlaceholder' id='viz1591565602151' style='position: absolute'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestFinancialCrimesWorkbook&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;SouthwestFinancialCrimesWorkbook&#47;Dashboard2?:embed=y&amp;:display_count=y' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestFinancialCrimesWorkbook&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1591565602151');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='669px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='905px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='669px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='905px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <div class="tableauPlaceholder" id="viz1591147388726" style="position: absolute;">
+      <noscript
+        ><a href="#"
+          ><img
+            alt=" "
+            src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestFinancialCrimesWorkbook&#47;Dashboard1&#47;1_rss.png"
+            style="border: none;" /></a></noscript
+      ><object class="tableauViz" style="display: none;"
+        ><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" /><param
+          name="name"
+          value="SouthwestFinancialCrimesWorkbook&#47;Dashboard1" /><param
+          name="tabs"
+          value="no" /><param name="toolbar" value="yes" /><param
+          name="static_image"
+          value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SouthwestFinancialCrimesWorkbook&#47;Dashboard1&#47;1.png" />
+        <param name="animate_transition" value="yes" /><param
+          name="display_static_image"
+          value="yes" /><param name="display_spinner" value="yes" /><param
+          name="display_overlay"
+          value="yes" /><param name="display_count" value="yes"
+      /></object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById("viz1591147388726");
+      var vizElement = divElement.getElementsByTagName("object")[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = "1520px";
+        vizElement.style.minHeight = "587px";
+        vizElement.style.maxHeight = "887px";
+        vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = "1520px";
+        vizElement.style.minHeight = "587px";
+        vizElement.style.maxHeight = "887px";
+        vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+      } else {
+        vizElement.style.width = "100%";
+        vizElement.style.height = "827px";
+      }
+      var scriptElement = document.createElement("script");
+      scriptElement.src =
+        "https://public.tableau.com/javascripts/api/viz_v1.js";
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+  <div class='tableauPlaceholder' id='viz1591565124015' style='position:absolute'>
+    <noscript><a href='#'>src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;Casino_Crime&#47;Top3-AllStates&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Casino_Crime&#47;Top3-AllStates' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ca&#47;Casino_Crime&#47;Top3-AllStates&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1591565124015');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+<footer class="footer">
+  <span class="bottom"></span>
+</footer>
+</div>
+<!-- Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
+<script type="text/javascript" src="../static/js/config.js"></script>
+<script type="text/javascript" src="../static/js/logic.js"></script>
+<script type="text/javascript" src="../static/js/app.js"></script>
+</body>
+</html>
