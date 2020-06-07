@@ -1,0 +1,54 @@
+
+body {
+    background-image: url(../images/handsontable.jpg);
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+}
+
+.jumbotron {
+    text-align: center;
+    padding: 0;
+    padding-bottom: 10px;
+    opacity: .6;
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+/* The footer is positioned at the bottom of the page */
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    min-height: 25px;
+    background: #4e5d6c;
+  }
+  
+  /* The code styles the text at the bottom of the footer */
+  .footer > .bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 6px;
+    background: #1b3146;
+  }
+  
+  .navbar {
+    position: fixed;
+    padding-right: 1px;
+    margin: 0;
+    background-color: #ffffff;
+  }
+  
+  .navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+  
